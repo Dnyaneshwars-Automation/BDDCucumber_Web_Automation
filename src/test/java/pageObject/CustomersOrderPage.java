@@ -1,3 +1,5 @@
+
+
 package pageObject;
 
 import org.openqa.selenium.By;
@@ -49,7 +51,7 @@ public class CustomersOrderPage {
 
 	public void clickOnStartDataCalenderandSelectStartDate() {
 		clickStartDataCalender.click();
-		myhook.explicitlyWait(clickEndDataCalender);
+		myhook.explicitlyWait(clickStartDataCalender);
 //		WebDriverWait wait=new WebDriverWait(driver, 30);
 //		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='k-animation-container']//div[@id='StartDate_dateview']"))));
 		String cMonth=driver.findElement(By.xpath("//div[@id='StartDate_dateview']//div[@class='k-header']//a[contains(text(),'January')]")).getText();

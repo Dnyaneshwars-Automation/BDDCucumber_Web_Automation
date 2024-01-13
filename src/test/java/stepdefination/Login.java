@@ -158,6 +158,23 @@ public class Login {
 
 	@Then("enter search customer all details")
 	public void enter_search_customer_all_details(DataTable dataTable) {
+		//This is for Single data Map
+//		List<String>list=dataTable.asList(String.class);
+//		searchcustomerpage.enterEmail(list.get(0));
+		
+		//This is for Multiple DataLine Maps
+//		List<List<String>> list= dataTable.asLists(String.class);
+//		for(List<String>li:list) {
+//		searchcustomerpage.enterEmail(li.get(0));
+//		searchcustomerpage.enterFirstName(li.get(1));
+//		searchcustomerpage.enterLastName(li.get(2));
+//		searchcustomerpage.enterCompanyName(li.get(3));
+		
+		//This is for Single data Map
+//		Map<String,String>list=dataTable.asMap(String.class,String.class);
+//		searchcustomerpage.enterEmail(list.get("Email"));
+		
+		//This is for Multiple DataLine Maps
 		List<Map<String, String>> dataMap=dataTable.asMaps(String.class,String.class);
 		for(Map<String,String>list:dataMap) {
 		searchcustomerpage.enterEmail(list.get("Email"));

@@ -37,6 +37,7 @@ public class MyHook {
 		logger.info("Browser SetUp Successfully");
 	}
 	
+	
 	@After
 	public void tearDown(Scenario scenario) {
 		if (driver != null) {
