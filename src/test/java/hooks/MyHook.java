@@ -1,5 +1,6 @@
 package hooks;
 
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
@@ -14,6 +15,7 @@ import factory.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import utils.ConfigReader;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -25,13 +27,12 @@ public class MyHook {
 	
 	@Before 
 	public void setUpBrowser() {
-//		System.setProperty("webdriver.chrome.driver", "C:\\Users\\monal\\Downloads\\chromedriver-win64\\chromedriver.exe"); 
-//		ChromeOptions options=new ChromeOptions();
-//		options.setBinary("C:\\Users\\monal\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe");
 		DriverFactory.initializebrowser("chrome");
+		//DriverFactory.initializebrowser(prop.getProperty("Browser"));
 		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
+		//driver.get(prop.getProperty("URL"));
 		driver.get("https://admin-demo.nopcommerce.com/login");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		logger.info("Browser SetUp Successfully");
