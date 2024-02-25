@@ -1,5 +1,6 @@
 package hooks;
 
+import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -28,11 +29,9 @@ public class MyHook {
 	@Before 
 	public void setUpBrowser() {
 		DriverFactory.initializebrowser("chrome");
-		//DriverFactory.initializebrowser(prop.getProperty("Browser"));
 		driver=DriverFactory.getDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		//driver.get(prop.getProperty("URL"));
 		driver.get("https://admin-demo.nopcommerce.com/login");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		logger.info("Browser SetUp Successfully");
@@ -40,19 +39,20 @@ public class MyHook {
 	
 	
 	@After
-	public void tearDown(Scenario scenario) {
-		if (driver != null) {
-		if(scenario.isFailed()==true) {
-			try {
-			final byte[] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-			scenario.attach(screenshot, "image/png", scenario.getName());
-			}
-			catch(Exception e) {
-				 e.printStackTrace();
-			}
-		}
-		
-		}
+	public void tearDown() {
+		//Scenario scenario
+//		if (driver != null) {
+//		if(scenario.isFailed()==true) {
+//			try {
+//			final byte[] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+//			scenario.attach(screenshot, "image/png", scenario.getName());
+//			}
+//			catch(Exception e) {
+//				 e.printStackTrace();
+//			}
+//		}
+//		
+//		}
 		driver.close();
 		logger.info("Browser Teardown Successfully");
 	}
@@ -61,7 +61,7 @@ public class MyHook {
 	
 
 	public void explicitlyWait(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 }

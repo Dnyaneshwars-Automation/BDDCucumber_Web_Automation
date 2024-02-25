@@ -16,10 +16,10 @@ public class DriverFactory {
 	public static void initializebrowser(String browserName) {
 		
 		if(browserName.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\monal\\Downloads\\chromedriver-win64\\chromedriver.exe"); 
+			WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\monal\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 			ChromeOptions options=new ChromeOptions();
 			options.setBinary("C:\\Users\\monal\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe");
-			WebDriverManager.chromedriver().setup();
 			driver=new ChromeDriver(options);
 		}
 		

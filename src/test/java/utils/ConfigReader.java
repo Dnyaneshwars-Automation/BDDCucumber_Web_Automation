@@ -9,7 +9,10 @@ public class ConfigReader {
 	public static Properties initializeProperties() {
 		
 		Properties prop= new Properties();
-		File src = new File(System.getProperty("C:\\Users\\monal\\git\\Dnyaneshwars-Automation-Lab\\src\\test\\java\\utils\\ConfigReader.java"));
+		
+		
+		
+		File src = new File("C:\\Users\\monal\\git\\Dnyaneshwars-Automation-Lab\\src\\main\\resources\\config.properties");
 	
 		try {
 			FileInputStream fis = new FileInputStream(src);

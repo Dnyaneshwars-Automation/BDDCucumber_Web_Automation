@@ -1,5 +1,3 @@
-
-
 package pageObject;
 
 import org.openqa.selenium.By;
