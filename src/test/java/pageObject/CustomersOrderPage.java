@@ -1,5 +1,7 @@
 package pageObject;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,7 +37,7 @@ public class CustomersOrderPage {
 	WebElement clickEndDataCalender;
 	
 	public void clickOnSalesButton() {
-		WebDriverWait wait=new WebDriverWait(driver, 30);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//a[@href='#']//p[contains(text(),'Sales')]"))));
 		salesHiddenBtn.click();		
 	}

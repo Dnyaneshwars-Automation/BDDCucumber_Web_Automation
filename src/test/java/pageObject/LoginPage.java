@@ -1,5 +1,7 @@
 package pageObject;
 
+import java.time.Duration;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -47,7 +49,7 @@ public class LoginPage {
 	}
 	
 	public void verifyLoginErrorMessage () {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("errorMsg")));
 		String actualMsg=errorMsg.getText();
 		String expectedMsg="Login was unsuccessful. Please correct the errors and try again.";

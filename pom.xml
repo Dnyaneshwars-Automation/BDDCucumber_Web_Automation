@@ -193,7 +193,7 @@
                 <configuration>
                     <!-- Include your test configuration here -->
                     <includes>
-						<exclude>**/*Runner.java</exclude>
+						<exclude>**/*TestRunner.java</exclude>
 					</includes>
                 </configuration>
             </plugin>
