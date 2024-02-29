@@ -83,3 +83,23 @@ INFO  2024-01-14 12:34:54 [main] Login - Logger information message
 INFO  2024-01-14 12:37:49 [main] MyHook - Browser SetUp Successfully
 INFO  2024-01-14 12:37:49 [main] Login - Logger information message
 INFO  2024-01-14 12:38:02 [main] MyHook - Browser Teardown Successfully
+INFO  2024-02-25 12:14:45 [main] MyHook - Browser SetUp Successfully
+INFO  2024-02-25 12:14:45 [main] Login - Logger information message
+INFO  2024-02-25 12:14:50 [main] MyHook - Browser Teardown Successfully
+ERROR 2024-02-29 17:54:34 [main] MyHook - WebDriver is null. Unable to perform browser teardown.
+INFO  2024-02-29 17:59:33 [main] MyHook - Browser SetUp Successfully
+INFO  2024-02-29 17:59:33 [main] Login - Logger information message
+INFO  2024-02-29 17:59:47 [main] MyHook - Browser Teardown Successfully
+ERROR 2024-02-29 18:51:32 [main] MyHook - WebDriver is null. Unable to perform browser teardown.
+INFO  2024-02-29 22:42:16 [main] MyHook - Browser SetUp Successfully
+INFO  2024-02-29 22:42:25 [main] Login - Logger information message
+INFO  2024-02-29 22:44:50 [main] MyHook - Browser Teardown Successfully
+INFO  2024-02-29 22:51:10 [main] MyHook - Browser SetUp Successfully
+INFO  2024-02-29 22:51:10 [main] Login - Logger information message
+INFO  2024-02-29 22:51:56 [main] MyHook - Browser Teardown Successfully
+INFO  2024-02-29 22:58:43 [main] MyHook - Browser SetUp Successfully
+INFO  2024-02-29 22:58:43 [main] Login - Logger information message
+INFO  2024-02-29 23:00:13 [main] MyHook - Browser Teardown Successfully
+INFO  2024-02-29 23:02:56 [main] MyHook - Browser SetUp Successfully
+INFO  2024-02-29 23:02:56 [main] Login - Logger information message
+INFO  2024-02-29 23:03:49 [main] MyHook - Browser Teardown Successfully

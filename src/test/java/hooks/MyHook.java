@@ -26,36 +26,40 @@ public class MyHook {
 	
 	private static Logger logger = LogManager.getLogger(MyHook.class);
 	
-	@Before 
-	public void setUpBrowser() {
-		DriverFactory.initializebrowser("chrome");
-		driver=DriverFactory.getDriver();
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.get("https://admin-demo.nopcommerce.com/login");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		logger.info("Browser SetUp Successfully");
-	}
-	
-	
-	@After
-	public void tearDown() {
-		//Scenario scenario
-//		if (driver != null) {
-//		if(scenario.isFailed()==true) {
-//			try {
-//			final byte[] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-//			scenario.attach(screenshot, "image/png", scenario.getName());
-//			}
-//			catch(Exception e) {
-//				 e.printStackTrace();
-//			}
-//		}
-//		
-//		}
-		driver.close();
-		logger.info("Browser Teardown Successfully");
-	}
+	 @Before
+	    public void setUpBrowser() {
+	        Properties prop = ConfigReader.initializeProperties();
+	        DriverFactory.initializebrowser(prop.getProperty("Browser"));
+	        driver = DriverFactory.getDriver();
+	        if (driver != null) {
+	            driver.manage().window().maximize();
+	            driver.manage().deleteAllCookies();
+	            driver.get(prop.getProperty("URL"));
+	            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	            logger.info("Browser SetUp Successfully");
+	        } else {
+	            logger.error("WebDriver is null. Browser setup failed.");
+	        }
+	    }
+
+	    @After
+	    public void tearDown(Scenario scenario) {
+	        if (driver != null) {
+	            if (scenario.isFailed()) {
+	                try {
+	                    final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+	                    scenario.attach(screenshot, "image/png", scenario.getName());
+	                } catch (Exception e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	            driver.quit(); // Changed from close() to quit() for better cleanup
+	            logger.info("Browser Teardown Successfully");
+	        } else {
+	            logger.error("WebDriver is null. Unable to perform browser teardown.");
+	        }
+	    }
+
 	
 	
 	

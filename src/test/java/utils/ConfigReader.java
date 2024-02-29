@@ -10,9 +10,7 @@ public class ConfigReader {
 		
 		Properties prop= new Properties();
 		
-		
-		
-		File src = new File("C:\\Users\\monal\\git\\Dnyaneshwars-Automation-Lab\\src\\main\\resources\\config.properties");
+		File src = new File("C:\\Users\\monal\\git\\BDDCucumber_Web_Automation\\src\\main\\resources\\config.properties");
 	
 		try {
 			FileInputStream fis = new FileInputStream(src);

@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 		monochrome=true,
 		features="src/test/resources/Features",
 		glue={"stepdefination","hooks"},
-		tags= ("@SanityTestAutomation_Login"),
+		tags= ("@DiscountSearchDate"),
 		plugin= {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		)
 

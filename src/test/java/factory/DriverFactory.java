@@ -15,12 +15,17 @@ public class DriverFactory {
 	
 	public static void initializebrowser(String browserName) {
 		
+		if(browserName == null) {
+            throw new IllegalArgumentException("Browser name is null");
+        }
+		
 		if(browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			System.setProperty("webdriver.chrome.driver", "C:\\Users\\monal\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 			ChromeOptions options=new ChromeOptions();
 			options.setBinary("C:\\Users\\monal\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe");
 			driver=new ChromeDriver(options);
+			options.addArguments("--headless");
 		}
 		
 		else if(browserName.equals("edge")) {
@@ -34,11 +39,16 @@ public class DriverFactory {
 			driver=new FirefoxDriver();
 			 
 		}
+		else {
+            throw new IllegalArgumentException("Invalid browser name: " + browserName);
+        }
 		
 	}
 		
 		public static WebDriver getDriver() {
-		
+			 if(driver == null) {
+		            throw new IllegalStateException("WebDriver is not initialized");
+		        }
 		return driver;
 	}
 
